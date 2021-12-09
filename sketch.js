@@ -1,43 +1,37 @@
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Body = Matter.Body;
 
 
-var box1, box2, box3, ground;
+var engine, world;
+var box1, box2, box3,ground;
 var ball;
 
+function setup() {
+  createCanvas(850, 400);
+  engine = Engine.create();
+  world = engine.world;
 
-function setup() 
-{
-  createCanvas(600, 400);
 
-  ball = new Ball(100, 100, 40, 40);
-  
-  console.log(ball);
+  ball = new Ball(50, 100, 30);
 
-  ground = new Box(0, 380, 600, 20);
-  
-  
-  box1 = new Box(200, 100, 70, 70);
-  box2 = new Box(300, 100, 70, 70);
-  box3 = new Box(400, 100, 70, 70);
+  ground = new Box(0, 380,850, 20);
+
+
+  box1 = new Box(100, 100, 70, 70);
+  box2 = new Box(200, 100, 70, 70);
+  box3 = new Box(300, 100, 70, 70);
 
 }
 
-function draw() 
-{
-  background(220);
-
- 
-  ground.display(); 
+function draw() {
+  background(180);
+  Engine.update(engine);
+  ground.display();
   box1.display();
-  box2.display()
-  box3.display()
-  
+  box2.display();
+  box3.display();
+
   ball.display();
 }
-
-
-
-
-
-
-
-
