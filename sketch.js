@@ -1,18 +1,10 @@
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
-const Body = Matter.Body;
 
 
-var engine, world;
 var box1, box2, box3,ground;
 var ball;
 
 function setup() {
   createCanvas(850, 400);
-  engine = Engine.create();
-  world = engine.world;
-
 
   ball = new Ball(50, 100, 30);
 
@@ -27,7 +19,7 @@ function setup() {
 
 function draw() {
   background(180);
-  Engine.update(engine);
+ 
   ground.display();
   box1.display();
   box2.display();
